@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_appmage/AppBarFat.dart';
 
 import 'CatigoryItem.dart';
+import 'CatigoryList.dart';
+import 'ItemList.dart';
 import 'ItemModule.dart';
 
 void main() {
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
                     height: 30,
                     padding:EdgeInsets.symmetric(horizontal: 25,vertical: 5) ,
                     decoration: BoxDecoration(
+
                       borderRadius: BorderRadius.circular(4),
                       border: Border.all(
                        color: Color(0xFFB5BFD0).withOpacity(0.32),
@@ -56,7 +59,6 @@ class MyApp extends StatelessWidget {
               margin:EdgeInsets.fromLTRB(10, 10, 0, 10) ,
 
               child: RichText(
-
                 text: TextSpan(
                   text: '',
                   style: DefaultTextStyle.of(context).style,
@@ -68,66 +70,16 @@ class MyApp extends StatelessWidget {
             ),
             //here are cat_item
            Container(
-
              child: Expanded(
-
                flex: 1,
                child:
-               ListView(
-                 scrollDirection: Axis.horizontal,
-                 children: [
-
-                 CategoryItem(),
-                 CategoryItem(),
-
-                   CategoryItem(),
-                   CategoryItem(),
-                   CategoryItem(),
-                   CategoryItem(),
-                   CategoryItem(),
-                   CategoryItem(),
-               ],),
+               CategoryList(),
              ),
            ),
+            // item list
             Expanded(
               flex: 3,
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //text main onoan
-                    Container(
-
-                      margin:EdgeInsets.fromLTRB(10, 10, 0, 0) ,
-
-                      child: RichText(
-
-                        text: TextSpan(
-                          text: '',
-                          style: DefaultTextStyle.of(context).style,
-                          children: const <TextSpan>[
-                            TextSpan(text: 'Item LIst', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Color(0xFF341557))),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ListView(
-                        children: [
-
-                          //text Finishes
-                          ItemListM(),
-                          ItemListM(),
-                          ItemListM(),
-                          ItemListM(),
-                          ItemListM(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
+              child:ItemList(),
             ),
 
             //the end of cat_item
